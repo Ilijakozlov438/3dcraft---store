@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DCraft Shop - Profesionalni Filament za 3D Štampu</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Kupite kvalitetan filament za 3D štampu u Beogradu. ABS, PLA, PETG, TPU, ASA. Originalni materijali, najbolje cene.">
+    <meta name="keywords" content="filament, 3D štampa, ABS, PLA, PETG, TPU, ASA, 3D materijal, Beograd">
+    <meta name="author" content="3DCraft Shop">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="slike/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/filament_shop.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="shop-header">
+        <div class="container">
+            <div class="shop-nav">
+                <a href="filament_shop.html" class="shop-logo">
+                    <i class="fas fa-spool"></i>3DCraft <span class="logo-shop">Shop</span>
+                </a>
+                
+                <div class="nav-right">
+                    <a href="https://3dcraft.rs" class="back-to-main">
+                        <i class="fas fa-arrow-left"></i> 3DCraft
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCountHeader">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Profesionalni Filament za 3D Štampu</h1>
+                <p class="subtitle">ABS • PLA • PETG • TPU • ASA • Najbolji kvalitet • Brza isporuka</p>
+                
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Originalni materijali</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Dostava 24h</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Samopreuzimanje Beograd</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Naš Asortiman Filamenta</h2>
+                <p>Izaberite materijal koji odgovara vašem projektu</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Svi materijali</button>
+                <button class="filter-btn" data-filter="ABS">ABS</button>
+                <button class="filter-btn" data-filter="PLA">PLA</button>
+                <button class="filter-btn" data-filter="PETG">PETG</button>
+                <button class="filter-btn" data-filter="TPU">TPU</button>
+                <button class="filter-btn" data-filter="ASA">ASA</button>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Comparison -->
+    <section class="materials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Koji materijal da odaberem?</h2>
+                <p>Kratak pregled karakteristika svakog materijala</p>
+            </div>
+            
+            <div class="materials-comparison">
+                <div class="material-info">
+                    <div class="material-icon abs">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3>ABS</h3>
+                    <p>Čvrst, otporan na toplotu. Za funkcionalne delove i prototipove.</p>
+                </div>
+                
+                <div class="material-info">
+                    <div class="material-icon pla">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>PLA</h3>
+                    <p>Lako se štampa, dobar finish. Za modele i dekorativne predmete.</p>
+                </div>
+                
+                <div class="material-info">
+                    <div class="material-icon petg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>PETG</h3>
+                    <p>Otpornost na udare, fleksibilnost. Za delove pod mehaničkim opterećenjem.</p>
+                </div>
+                
+                <div class="material-info">
+                    <div class="material-icon tpu">
+                        <i class="fas fa-expand-alt"></i>
+                    </div>
+                    <h3>TPU</h3>
+                    <p>Fleksibilan, gumen. Za usisnike, amortizere, fleksibilne delove.</p>
+                </div>
+                
+                <div class="material-info">
+                    <div class="material-icon asa">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>ASA</h3>
+                    <p>Otpornost na UV zračenje, vremenske uslove. Za spoljnu upotrebu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kako funkcioniše?</h2>
+                <p>Tri jednostavna koraka do vašeg filamenta</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Dodajte u korpu</h3>
+                    <p>Izaberite željeni filament, boju i količinu</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Idite u korpu</h3>
+                    <p>Pregledajte odabrane proizvode i količine</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Pošaljite poruku</h3>
+                    <p>Poručite preko WhatsApp/Viber automatskom porukom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preuzimanje i Kontakt</h2>
+                <p>Brzo i jednostavno</p>
+            </div>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adresa preuzimanja</h3>
+                    <p>Makedonska 1A, Zemun<br>Beograd, Srbija</p>
+                    <a href="https://maps.google.com/?q=Makedonska+1A+Zemun+Beograd" 
+                       target="_blank" 
+                       class="map-link">
+                        <i class="fas fa-map-marked-alt"></i> Otvori na mapi
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Radno vreme</h3>
+                    <p>Ponedeljak - Petak: 09:00-17:00<br>Subota: 10:00-14:00<br>Nedelja: zatvoreno</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Kontakt i podrška</h3>
+                    <p class="phone">063 779 78 57</p>
+                    <p>Dostupni na Viber i WhatsApp za sva pitanja</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="shop-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-spool"></i> 3DCraft Shop</h3>
+                    <p>Prodaja profesionalnog filamenta za 3D štampu. Kvalitetni materijali, brza isporuka, stručna podrška.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/381637797857" class="social-icon whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="viber://contact?number=381637797857" class="social-icon viber">
+                            <i class="fab fa-viber"></i>
+                        </a>
+                        <a href="https://www.instagram.com/3dcraft.rs/" class="social-icon instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Materijali</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-cube"></i> ABS Filament</li>
+                        <li><i class="fas fa-cube"></i> PLA Filament</li>
+                        <li><i class="fas fa-cube"></i> PETG Filament</li>
+                        <li><i class="fas fa-cube"></i> TPU Filament</li>
+                        <li><i class="fas fa-cube"></i> ASA Filament</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Linkovi</h3>
+                    <ul class="footer-links">
+                        <li><a href="filament_shop.html"><i class="fas fa-store"></i> Prodavnica</a></li>
+                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Korpa</a></li>
+                        <li><a href="https://3dcraft.rs"><i class="fas fa-print"></i> 3D Usluge</a></li>
+                        <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> Preuzimanje</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 063 779 78 57</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Makedonska 1A, Beograd</li>
+                        <li><i class="fas fa-envelope"></i> 3dcraft.rs@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> 09:00-21:00 (Pon-Pet)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 3DCraft Shop. Sva prava zadržana. Svi materijali su originalni i garantovanog kvaliteta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <a href="cart.html" class="floating-cart-btn" id="floatingCartBtn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="floatingCartCount">0</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/filament_shop.js"></script>
+    <script>
+// Проверка загрузки
+console.log('Page loaded');
+console.log('SHOP_PRODUCTS:', window.SHOP_PRODUCTS);
+console.log('SHOP_CONFIG:', window.SHOP_CONFIG);
+
+// Если товары не загружены через 2 секунды, покажем сообщение
+setTimeout(function() {
+    if (!window.SHOP_PRODUCTS || window.SHOP_PRODUCTS.length === 0) {
+        console.error('Товары не загрузились! Проверьте:');
+        console.error('1. Существует ли файл js/config.js');
+        console.error('2. Правильный ли путь к файлу');
+        console.error('3. Нет ли ошибок в config.js');
+        
+        const grid = document.getElementById('productsGrid');
+        if (grid) {
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #ff4444;">
+                    <h3>Ошибка загрузки товаров</h3>
+                    <p>Проверьте консоль браузера (F12) для подробностей</p>
+                    <button onclick="window.location.reload()" style="margin-top: 20px; padding: 10px 20px;">
+                        Перезагрузить
+                    </button>
+                </div>
+            `;
+        }
+    }
+}, 2000);
+</script>
+</body>
+</html>

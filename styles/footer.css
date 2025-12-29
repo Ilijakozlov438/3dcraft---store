@@ -1,0 +1,110 @@
+/* ===== FOOTER ===== */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 70px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-links li:not(:has(a)) {
+    color: #aaa;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links li i.fa-check {
+    color: var(--primary);
+    margin-right: 8px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.footer-links li i.fa-chevron-right {
+    color: var(--primary);
+    margin-right: 8px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.footer-links li i.fas:not(.fa-check):not(.fa-chevron-right) {
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 14px;
+}
