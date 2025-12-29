@@ -320,7 +320,10 @@ function setupCartEventListeners(products, config) {
             
             if (confirm('Da li ste sigurni da želite da ispraznite celu korpu?')) {
                 cartManager.clearCart();
+                // Полностью перерисовываем корзину
                 renderCart(products, config);
+                // Обновляем счетчики в хедере
+                cartManager.updateCartCounters();
                 notificationManager.show('Korpa je ispražnjena', 'success');
             }
         });

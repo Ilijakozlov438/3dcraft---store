@@ -65,7 +65,6 @@ function renderProducts(products, config) {
                             <button class="qty-btn minus" data-id="${product.id}">-</button>
                             <input type="number" class="qty-input" value="1" min="1" max="10" data-id="${product.id}">
                             <button class="qty-btn plus" data-id="${product.id}">+</button>
-                            <span class="qty-unit">kg</span>
                         </div>
                         <button class="add-to-cart-btn" data-id="${product.id}">
                             <i class="fas fa-cart-plus"></i> U korpu
@@ -74,7 +73,7 @@ function renderProducts(products, config) {
                     ` : `
                     <div class="product-out-of-stock">
                         <button class="notify-btn" data-id="${product.id}">
-                            <i class="fas fa-bell"></i> Obavesti kada bude
+                            <i class="fas fa-bell"></i> Uskoro!
                         </button>
                     </div>
                     `}
@@ -129,7 +128,7 @@ function addProductEventListeners() {
             const productId = this.dataset.id;
             const product = SHOP_PRODUCTS.find(p => p.id === productId);
             if (product) {
-                notificationManager.show(`Obavestićemo vas kada ${product.name} ${product.color} bude na stanju`, 'info');
+                notificationManager.show(`Uskoro bude na stanju ${product.name} ${product.color}!`, 'info');
             }
         });
     });

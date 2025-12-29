@@ -172,7 +172,7 @@ const SHOP_PRODUCTS = [
         characteristics: ['Bela boja', 'Ne žuti na suncu', 'Za spoljnu upotrebu'],
         printTemp: '240-260°C',
         bedTemp: '90-110°C',
-        inStock: true
+        inStock: false
     }
 ];
 
