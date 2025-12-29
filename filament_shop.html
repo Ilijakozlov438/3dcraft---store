@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/shop.css">
+    <link rel="stylesheet" href="styles/header.css">
 </head>
 <body>
     <!-- Header -->
@@ -35,9 +36,11 @@
                     <a href="https://3dcraft.rs" class="back-to-main">
                         <i class="fas fa-arrow-left"></i> 3DCraft
                     </a>
-                    <a href="cart.html" class="cart-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
+                    <a href="cart.html">
+                        <div class="header-cart-info" id="headerCartInfo">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Korpa: <span id="headerCartCount">0</span> kg</span>
+                        </div>
                     </a>
                 </div>
             </div>
