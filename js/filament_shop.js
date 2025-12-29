@@ -1,4 +1,5 @@
 // ===== ГЛАВНАЯ СТРАНИЦА МАГАЗИНА =====
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Shop page initialized');
@@ -132,6 +133,11 @@ function addProductEventListeners() {
             }
         });
     });
+
+    // Обработка сенсорных устройств
+    if (isTouchDevice) {
+        addTouchOptimizations();
+    }
 }
 
 function initFilters(products) {
@@ -174,4 +180,86 @@ function initFilters(products) {
 function getProductImagePath(product, config) {
     if (!product || !config) return config.defaultImage;
     return `${config.imageBasePath}${product.sku}.jpg`;
+}
+
+// Добавляем оптимизации для сенсорных устройств
+function addTouchOptimizations() {
+    // Добавляем обратную связь при касании
+    document.querySelectorAll('.qty-btn, .add-to-cart-btn, .mobile-cart-btn, .notify-btn, .mobile-notify-btn, .filter-btn').forEach(btn => {
+        // Предотвращаем контекстное меню на долгом нажатии
+        btn.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Добавляем визуальную обратную связь
+        btn.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7';
+        });
+        
+        btn.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+        });
+    });
+    
+    // Оптимизируем инпуты для мобильных
+    document.querySelectorAll('.qty-input, .mobile-input').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.borderColor = '#25D366';
+            this.style.boxShadow = '0 0 0 3px rgba(37, 211, 102, 0.2)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.style.borderColor = '#ddd';
+            this.style.boxShadow = 'none';
+        });
+        
+        // Делаем input readonly для мобильных, чтобы не открывать клавиатуру
+        input.setAttribute('readonly', 'readonly');
+        
+        // Добавляем обработку свайпов для изменения значения
+        setupSwipeForInput(input);
+    });
+}
+
+// Функция для анимации кнопок
+function animateButtonClick(button) {
+    if (isTouchDevice) {
+        button.style.transform = 'scale(0.92)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+    } else {
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 100);
+    }
+}
+
+// Настраиваем свайпы для инпутов на мобильных (опционально)
+function setupSwipeForInput(input) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    input.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    input.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        
+        // Свайп влево для уменьшения, вправо для увеличения
+        if (Math.abs(diff) > 30) {
+            const currentValue = parseInt(this.value) || 1;
+            if (diff > 0 && currentValue < 10) {
+                // Свайп влево - увеличиваем
+                this.value = currentValue + 1;
+            } else if (diff < 0 && currentValue > 1) {
+                // Свайп вправо - уменьшаем
+                this.value = currentValue - 1;
+            }
+        }
+    }, { passive: true });
 }
