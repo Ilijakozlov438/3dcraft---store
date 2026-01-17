@@ -1,206 +1,62 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3DCraft Shop - Vaša Korpa</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Pregledajte i poručite filament za 3D štampu iz vaše korpe. Poručite preko WhatsApp/Viber.">
-    <meta name="keywords" content="korpa, porudžbina, filament, 3D štampa, kupovina, Beograd">
-    <meta name="author" content="3DCraft Shop">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="slike/favicon.ico">
-    
+    <title>Корзина | 3DCraft Store</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/cart.css">
-    <link rel="stylesheet" href="styles/header.css">
+    <!-- Стили -->
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/cart.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script/app.js" defer></script>
+    <script src="script/products.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="shop-header">
+    <header>
         <div class="container">
-            <div class="shop-nav">
-                <a href="filament_shop.html" class="shop-logo">
-                    <i class="fas fa-spool"></i>3DCraft <span class="logo-shop">Shop</span>
+            <a href="index.html" class="logo">
+                <i class="fas fa-cube"></i>
+                <span>3DCraft Store</span>
+            </a>
+            <div class="header-actions">
+                <a href="https://3dcraft.rs" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    На 3dcraft.rs
                 </a>
-                
-                <div class="nav-right">
-                    <a href="filament_shop.html" class="back-to-main">
-                        <i class="fas fa-arrow-left"></i> Nazad na prodavnicu
-                    </a>
-                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Cart Main Content -->
-    <main class="cart-main">
+    <main class="cart-container">
         <div class="container">
-            <!-- Page Header -->
-            <div class="cart-page-header">
-                <h1><i class="fas fa-shopping-cart"></i> Vaša korpa</h1>
-                <p>Pregledajte i poručite odabrane proizvode</p>
+            <div class="cart-header">
+                <h1>Ваша корзина</h1>
+                <p>Проверьте товары перед оформлением заказа</p>
             </div>
-
-            <div class="cart-layout">
-                <!-- Cart Items Column -->
-                <div class="cart-items-column">
-                    <div class="cart-section-header">
-                        <h2>Odabrani proizvodi</h2>
-                        <button class="clear-cart-btn" id="clearCartBtn">
-                            <i class="fas fa-trash-alt"></i> Isprazni korpu
-                        </button>
-                    </div>
-                    
-                    <div class="cart-items-list" id="cartItemsList">
-                        <!-- Cart items will be loaded here by JavaScript -->
-                        <div class="empty-cart-state" id="emptyCartState">
-                            <div class="empty-cart-icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <h3>Vaša korpa je prazna</h3>
-                            <p>Dodajte proizvode iz naše prodavnice</p>
-                            <a href="filament_shop.html" class="btn btn-primary">
-                                <i class="fas fa-store"></i> Posetite prodavnicu
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Order Summary Column -->
-                <div class="order-summary-column">
-                    <div class="order-summary-card">
-                        <div class="summary-header">
-                            <h3><i class="fas fa-receipt"></i> Rezime porudžbine</h3>
-                        </div>
-                        
-                        <div class="summary-content">
-                            <div class="summary-row">
-                                <span>Ukupna količina:</span>
-                                <span id="summaryTotalQuantity">0 kg</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Vrednost robe:</span>
-                                <span id="summarySubtotal">0.00€</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Dostava:</span>
-                                <span class="free-shipping">Besplatno (samopreuzimanje)</span>
-                            </div>
-                            
-                            <div class="summary-divider"></div>
-                            
-                            <div class="summary-row total-row">
-                                <span><strong>Za plaćanje:</strong></span>
-                                <span><strong id="summaryTotal">0.00€</strong></span>
-                            </div>
-                        </div>
-                        
-                        <div class="summary-actions">
-                            <button class="btn-order-whatsapp" id="orderWhatsAppBtn" disabled>
-                                <i class="fab fa-whatsapp"></i> Poruči preko WhatsApp
-                            </button>
-                            
-                            <button class="btn-order-viber" id="orderViberBtn" disabled>
-                                <i class="fab fa-viber"></i> Poruči preko Viber
-                            </button>
-                            
-                            <a href="filament_shop.html" class="btn-continue-shopping">
-                                <i class="fas fa-arrow-left"></i> Nastavite kupovinu
-                            </a>
-                        </div>
-                        
-                        <div class="summary-info">
-                            <div class="info-box">
-                                <i class="fas fa-info-circle"></i>
-                                <div>
-                                    <p><strong>Važno:</strong> Nakon što pošaljete poruku, kontaktiraćemo vas u roku od 1h za potvrdu dostupnosti i dogovor oko preuzimanja.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Info Card -->
-                    <div class="contact-info-card">
-                        <h4><i class="fas fa-info-circle"></i> Informacije za preuzimanje</h4>
-                        <div class="contact-info-content">
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Adresa:</strong> <span id="config-address">Makedonska 1A, Zemun, Beograd</span></p>
-                            <p><i class="fas fa-clock"></i> <strong>Radno vreme:</strong> <span id="config-hours">Pon-Pet 09:00-17:00, Sub 10:00-14:00</span></p>
-                            <p><i class="fas fa-phone"></i> <strong>Telefon:</strong> <span id="config-phone">063 779 78 57 (WhatsApp/Viber)</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bulk Order Reminder -->
-            <div class="bulk-reminder" id="bulkReminder" style="display: none;">
-                <div class="bulk-reminder-content">
-                    <i class="fas fa-boxes"></i>
-                    <div class="bulk-reminder-text">
-                        <h4>Naručujete više od <span id="bulkThreshold">5</span>kg?</h4>
-                        <p>Ostvarite posebnu cenu i besplatnu dostavu! Kontaktirajte nas direktno na WhatsApp.</p>
-                    </div>
-                    <a href="#" id="bulkWhatsAppBtn" class="bulk-whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Zatražite ponudu
-                    </a>
-                </div>
+            
+            <div id="cart-items-container">
+                <!-- Содержимое корзины будет загружено через JavaScript -->
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="shop-footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3><i class="fas fa-spool"></i> <span id="config-shopname">3DCraft Shop</span></h3>
-                    <p>Profesionalni filament za 3D štampu. Kvalitet garantovan.</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Kontakt</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> <span id="config-footer-phone">063 779 78 57</span></li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span id="config-footer-address">Makedonska 1A, Beograd</span></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Linkovi</h3>
-                    <ul class="footer-links">
-                        <li><a href="filament_shop.html"><i class="fas fa-store"></i> Prodavnica</a></li>
-                        <li><a href="index.html"><i class="fas fa-print"></i> 3D Usluge</a></li>
-                        <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> Preuzimanje</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Radno vreme</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-clock"></i> Pon-Pet: 09:00-21:00</li>
-                        <li><i class="fas fa-clock"></i> Subota: 10:00-14:00</li>
-                        <li><i class="fas fa-clock"></i> Nedelja: zatvoreno</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 <span id="config-copyright">3DCraft Shop</span>. Sva prava zadržana.</p>
-            </div>
+            <p>&copy; 2023 3DCraft Store. Все права защищены.</p>
+            <p>Контакты: info@3dcraft-store.ru | +7 (495) 123-45-67</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/config.js"></script>
-    <script src="js/shop-core.js"></script>
-    <script src="js/cart.js"></script>
+    <!-- Скрипты -->
+    <script src="script/cart.js" defer></script>
+    <script src="script/email-config.js" defer></script>
 </body>
 </html>

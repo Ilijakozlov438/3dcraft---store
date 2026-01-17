@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DCraft Store - Качественный 3D филамент</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Стили -->
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/shop.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cube"></i>
+                <span>3DCraft Store</span>
+            </a>
+            <div class="header-actions">
+                <a href="https://3dcraft.rs" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    На 3dcraft.rs
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Премиальный 3D филамент для профессиональной печати</h1>
+            <p>PLA, PETG, ASA, ABS и другие материалы высшего качества от проверенных производителей</p>
+            <a href="#products" class="btn btn-primary pulse-animation">
+                <i class="fas fa-shopping-cart"></i>
+                Начать покупки
+            </a>
+        </div>
+    </section>
+
+    <section class="filters">
+        <div class="container">
+            <div class="filter-group">
+                <label for="material-filter">Материал:</label>
+                <select id="material-filter">
+                    <option value="all">Все</option>
+                    <option value="PLA">PLA</option>
+                    <option value="PETG">PETG</option>
+                    <option value="ASA">ASA</option>
+                    <option value="ABS">ABS</option>
+                    <option value="TPU">TPU</option>
+                    <option value="PCTG">PCTG</option>
+                    <option value="Resin">Resin</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="brand-filter">Бренд:</label>
+                <select id="brand-filter">
+                    <option value="all">Все</option>
+                    <!-- Динамически заполнится из JS -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <input type="checkbox" id="in-stock-filter">
+                <label for="in-stock-filter">Только в наличии</label>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-grid" id="products-container">
+        <!-- Товары будут загружены с помощью JavaScript -->
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 3DCraft Store. Все права защищены.</p>
+            <p>Контакты: info@3dcraft-store.ru | +7 (495) 123-45-67</p>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="script/products.js"></script>
+    <script src="script/app.js"></script>
+    <script src="script/shop.js"></script>
+</body>
+</html>
